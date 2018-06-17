@@ -9,11 +9,11 @@ nav {
 }
 
 a {
-  color: #fed420;
+  color: #0c4cb3;
 }
 
 a:hover {
-  color: #fed420;
+  color: #0c4cb3;
   text-decoration: none;
 }
 
@@ -31,8 +31,7 @@ ul {
 }
 
 @media only screen and (max-width: 750px) {
-  #cur-sco,
-  #top-sco {
+  #score {
     font-size: 2rem;
   }
 }

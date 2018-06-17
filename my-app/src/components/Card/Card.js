@@ -1,8 +1,22 @@
 import React from "react";
 
 const Card = props => (
-  <div className="cardwrapper">
+  <div className="wrapper" onClick={props.clickfx}>
     <img src={props.children.image} />
+  </div>
+);
+import React from "react";
+import "./Card.css";
+
+const Card = props => (
+  <div
+    className="card"
+    value={props.id}
+    onClick={() => props.handleClick(props.id)}
+  >
+    <div className="img-container">
+      <img alt={props.name} src={props.image} />
+    </div>
   </div>
 );
 
