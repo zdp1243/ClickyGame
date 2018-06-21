@@ -69,7 +69,7 @@ class App extends Component {
   render() {
     return (
       <Wrapper>
-        <Nav
+        <Navbar
           title="DC Comics Memory Game"
           score={this.state.Score}
           rightWrong={this.state.rightWrong}

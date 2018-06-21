@@ -1,21 +1,9 @@
-import React, { Component } from 'react';
-import Navbar from '../Navbar/Navbar';
-import GameArea from '../GameArea/GameArea';
-import Footer from '../Footer/Footer';
-import cards from '../../cards.json';
 
+import React from "react";
 
-class MemoryContainer extends Component {
-    state = {
-        cards,
-        score = 0
-    }
+const Container = props =>
+  <div className={`container${props.fluid ? "-fluid" : ""}`}>
+    {props.children}
+  </div>;
 
-    render(){
-        return (
-            <Navbar score={this.state.score}></Navbar>
-            <GameArea />
-            <Footer />
-        );
-    }
-}
+export default Container;
