@@ -1,7 +1,7 @@
 import React from "react";
 import "./Navbar.css";
 
-const Nav = props => (
+const Navbar = props => (
   <nav>
     <ul>
       <li className="brand animated lightSpeedIn">

@@ -1,25 +1,15 @@
-import React from "react";
-import Container from "./components/Container";
 import React, { Component } from "react";
+import Container from "./components/Container";
 import Card from "./components/Card";
-import Nav from "./components/Nav";
+import Navbar from "./components/Navbar";
 import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
-import Container from "./Container";
-import Row from "./Row";
-import Column from "./Column";
-import Cards from "./cards.json";
+import Row from "./components/Row";
+import Column from "./components/Column";
+import cards from "./cards.json";
 import "./App.css";
 
-const App = () => <Container />;
-//Shuffles Cards
-function shuffleCards(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    let j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
-}
+// const App = () => <Container />;
 
 class App extends Component {
   // Set this.state
@@ -29,6 +19,10 @@ class App extends Component {
     rightWrong: "",
     clicked: []
   };
+
+  // componentDidMount() {
+  //   this.setState({ cards: this.handleShuffle(this.state.cards) });
+  // }
 
   handleClick = id => {
     if (this.state.clicked.indexOf(id) === -1) {
@@ -61,9 +55,18 @@ class App extends Component {
     this.handleShuffle();
   };
 
+  //Shuffles Cards
+  shuffleCards = array => {
+    for (let i = array.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
+
   handleShuffle = () => {
-    let shuffledCards = shuffleCards(cards);
-    this.setState({ cards: shuffledCards });
+    let shuffled = this.shuffleCards(this.state.cards);
+    this.setState({ cards: shuffled });
   };
 
   render() {
@@ -82,16 +85,16 @@ class App extends Component {
 
         <Container>
           <Row>
-            {this.state.friends.map(friend => (
+            {this.state.cards.map(item => (
               <Column size="md-3 sm-6">
                 <Card
-                  key={Cards.id}
+                  key={item.id}
                   handleClick={this.handleClick}
                   handleIncrement={this.handleIncrement}
                   handleReset={this.handleReset}
                   handleShuffle={this.handleShuffle}
-                  id={Cards.id}
-                  image={Card.image}
+                  id={item.id}
+                  image={item.image}
                 />
               </Column>
             ))}

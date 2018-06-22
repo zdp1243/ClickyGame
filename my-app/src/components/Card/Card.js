@@ -1,10 +1,10 @@
-import React from "react";
+// import React from "react";
 
-const Card = props => (
-  <div className="wrapper" onClick={props.clickfx}>
-    <img src={props.children.image} />
-  </div>
-);
+// const Card = props => (
+//   <div className="wrapper" onClick={props.clickfx}>
+//     <img src={props.children.image} />
+//   </div>
+// );
 import React from "react";
 import "./Card.css";
 
